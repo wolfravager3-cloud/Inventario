@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario LxG</title>
+    <link rel="stylesheet" href="diseñop.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h2 class="brand">LxG</h2>
+        <h3>🔐 Iniciar Sesión</h3>
+
+        <input type="text" id="usuario" placeholder="Usuario">
+
+        <div class="password-box">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button type="button" onclick="togglePassword()"> 👁 </button>
+        </div>
+
+        <button onclick="login()">Entrar</button>
+
+        <p id="error"></p>
+    </div>
+
+    <!-- INVENTARIO -->
+    <div id="app" style="display:none;">
+
+        <header class="app-header">
+            <h1>📦 Inventario <span class="brand inline">LxG</span></h1>
+            <div class="user-info">
+                <span id="userLabel"></span>
+                <button onclick="logout()">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <section class="controls">
+            <div class="left">
+                <form id="form">
+                    <input type="text" id="nombre" placeholder="Nombre del producto">
+                    <input type="number" id="precio" placeholder="Precio">
+                    <input type="number" id="cantidad" placeholder="Cantidad">
+                    <input type="date" id="fecha">
+                    <input type="text" id="imagen" placeholder="URL de imagen">
+                    <input type="text" id="descripcion" placeholder="Descripción">
+                    <button type="submit">Agregar</button>
+                </form>
+            </div>
+
+            <div class="right">
+                <input type="text" id="buscar" placeholder="Buscar productos...">
+            </div>
+        </section>
+
+        <section id="adminPanel" style="display:none;" class="admin-panel">
+            <h3>Panel de administrador</h3>
+            <input type="text" id="newSellerUser" placeholder="Usuario vendedor">
+            <input type="password" id="newSellerPass" placeholder="Contraseña vendedor">
+            <button onclick="crearVendedor()">Crear vendedor</button>
+            <p id="adminMsg"></p>
+            <h4>Vendedores</h4>
+
+<div id="listaVendedores"></div>
+        </section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Imagen</th>
+                    <th>Fecha</th>                    
+                    <th>Descripción</th>
+
+                </tr>
+            </thead>
+
+            <tbody id="lista"></tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
